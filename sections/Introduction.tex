@@ -3,16 +3,26 @@
 
 \begin{document}
 \section{Introduction}
-Ever since the advent of computers, there has been a concerted effort to imitate the behaviours we notice in our world, as an endeavour to solve problems, that couldn't be solved without computers. Perhaps, in failing to do so, one can discover other avenues to solve a related (or unrelated) problem. 
+Since the inception of computing technology, there has been an concerted effort to replicate observable phenomena from the natural world as a means of solving problems that once couldn't be solved without computers.
+\newline
 For example, Craig Reynolds in his seminal paper \cite{reynoldsFlocksHerdsSchools1987} is an excellent case study, of such an example. Reynolds defined three very simple rules pertaining to the behaviours of birds in a flock. These rules are: 
 \begin{itemize}
   \item Alignment: the birds will steer towards the average heading of their peers.
   \item Cohesion: the birds will steer towards the center of the mass of its peers.  
-  \item Seperation: the birds will steer away from colliding with their peers.
+  \item Separation the birds will steer away from colliding with their peers.
 \end{itemize}
 These simple laws, though primitive, produce a "realistic" approximation of how birds behave in actuality, so much so, that the US Army uses this algorithm, for their UAV-UGV programs \cite{saskaCoordinationNavigationHeterogeneous2014}.
 
 In essence, computer simulation provides a "good enough" approximation for the theories encompassing the real world, crafted by mathematicians and physicists alike.
 \subsection{Motivation}
-Rendering is the process of producing an image from a description of a 3D scene. This daunting task can be easily understood by asking: Given a room configuration 
+Rendering is the process of producing an image from a description of a 3D scene. This daunting task can be easily understood by asking: Given a set configuration of a room, what would a camera see, in a set location within the room. 
+If left pondering, one can easily come to a reasonable algorithm, befit the style of rendering they want. For example, a very simple approach could be to check if a light ray enters the camera from light sources (if any) within the room. If so, then the camera could record a colour based on some product of the colours the light ray hit before it entered the camera. 
+
+However, I intend to implement the "Physically Based" rendering algorithm.
+As the name suggests, this algorithm tries to stay true to the physics of the world, imitating its behaviour as matter and light mesh together. It differentiates different materials dependent on their reaction with light incident upon them, as well as how light itself reacts through mediums not necessarily vacuums, like fog. 
+
+I intend to implement this algorithm not only because it is a excellent opportunity to mix the three subjects I do for A-Level together (Physics, Maths, Computing), but also as an challenging extension in the field, in which I will be considering a future in.
+\subsection{The Ray-tracing Algorithm}
+TODO
+\subfile{Research_Review.tex}
 \end{document} 
