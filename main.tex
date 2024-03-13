@@ -11,7 +11,7 @@
 \usepackage{titling}               % allow redefinition of title formatting
 \usepackage{imakeidx}              % create and index of words
 \usepackage{xcolor}                % more colour options
-\usepackage{enumitem}              % more list formatting options
+% \usepackage{enumitem}              % more list formatting options
 \usepackage{tocloft}               % redefine table of contents, new list like objects
 \usepackage{amsmath}                                    % extensive math options
 \usepackage{amssymb}                                    % special math symbols
@@ -69,10 +69,16 @@
 \usepackage{subcaption}                    % adds subfigure & subcaption
 \usepackage{sidecap}                       % adds side captions
 \usepackage{hyperref}                      % add hyperlinks to references
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  filecolor=magenta,
+  urlcolor=cyan,
+}
 \usepackage[noabbrev,nameinlink]{cleveref} % better references than default \ref
-\usepackage{autonum}                       % only number referenced equations
+% \usepackage{autonum}                       % only number referenced equations
 \usepackage{url}                           % urls
-\usepackage{cite}                          % well formed numeric citations
+% \usepackage{cite}                          % well formed numeric citations
 
 \usepackage{lipsum}
 
@@ -80,7 +86,7 @@
 
 \usepackage{biblatex}
 \addbibresource{Library.bib}
-
+\usepackage[nottoc,notlot,notlof, numbib]{tocbibind}
 \begin{document}
 \begin{titlepage}
    \begin{center}
@@ -118,7 +124,8 @@
 \twocolumn
 
 \subfile{sections/Introduction}
-
+\cleardoublepage
+\printbibliography
 
 
 \end{document}
