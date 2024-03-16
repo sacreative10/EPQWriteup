@@ -22,8 +22,21 @@ However, I intend to implement the "Physically Based" rendering algorithm.
 As the name suggests, this algorithm tries to stay true to the physics of the world, imitating its behaviour as matter and light mesh together. It differentiates different materials dependent on their reaction with light incident upon them, as well as how light itself reacts through mediums not necessarily vacuums, like fog. 
 
 I intend to implement this algorithm not only because it is a excellent opportunity to mix the three subjects I do for A-Level together (Physics, Maths, Computing), but also as an challenging extension in the field, in which I will be considering a future in.
-TODO: SUCCESS CRITERIA
-\subsection{The Ray-tracing Algorithm}
+\subsubsection{Success Criteria}
+The objective of this project is to create a piece of software, that given a scene description will produce an image, following the rules of physically based rendering. 
 TODO
+\subsection{The Ray-tracing Algorithm}
+PBRT (Physically Based Ray-tracing), can be easily split up into several distinct componets in a "pipeline" or "story" of sorts. This can be done, primarily because PBRT is an algorithm, a series of steps, but also because elements of pipeline or story can easily be implemented independently, and understood independently, as a function with an input and an output.
+
+Going back to the idea of thinking PBRT as imagining a camera in a room, we can easily demarcate different functions of the algorithm.
+The following steps are derivative of the steps outlined in \cite{pharrPhysicallyBasedRendering2016}.
+\begin{itemize}
+  \item Camera model: The camera model given its initial location and orientation within 3D space, must provide a method of generating rays in a scene (Reference place ahead). It must also do pre and post-processing if necessary (.i.e. different film types).
+  \item Ray propagation: The ray generated from the camera will traverse the scene differently, depending on which medium it is in. For example, in a vacuum, all light energy is conserved, but that is a rare case on Earth, therefore extra calculations must occur to account for different mediums (like through a fog).
+  \item Ray-object Intersection: One can only "trace rays", if said ray hits (and bounces off) an object. The program must detect when there is a collision between an object and a ray, and appropriately "cause" the ray to bounce of the object in the appropriate direction.
+    The algorithm must also distinguish between different objects (usually returning the closest one). Also, the ray tracer can only generate images as sophisticated as the objects it can detect, so the program must also provide intersection tests with different kinds objects (triangles, circles, etc). Due to this, finding intersections is the most expensive process of the entire algorithm, so the program must also provide some method of culling objects not near the ray.
+  \item Light sources: Without a light in a room, it would be pointless to render a scene. The ray tracer must accurately describe a light distribution within a scene. As a part of this, the tracer must also distinguish whether a point in a scene has any light shining on it or not.
+  \item Indirect Light Transport: Because light can arrive at a surface after bouncing off or passing through other surfaces, it is usually necessary to trace additional rays originating at the surface to fully capture this effect \cite{pharrPhysicallyBasedRendering2016}. 
+\end{itemize}
 \subfile{Research_Review.tex}
 \end{document} 
