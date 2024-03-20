@@ -1,4 +1,4 @@
-
+  
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
@@ -38,4 +38,14 @@ The following steps are derivative of the steps outlined in \cite{pharrPhysicall
   \item Light sources: Without a light in a room, it would be pointless to render a scene. The ray tracer must accurately describe a light distribution within a scene. As a part of this, the tracer must also distinguish whether a point in a scene has any light shining on it or not.
   \item Indirect Light Transport: Because light can arrive at a surface after bouncing off or passing through other surfaces, it is usually necessary to trace additional rays originating at the surface to fully capture this effect \cite{pharrPhysicallyBasedRendering2016}. 
 \end{itemize}
+\subsection{Alternatives}
+Most algorithms usually have alternatives, and Physically Based Rendering also has alternatives
+\subsubsection{3D Gaussian Splatting}
+3D Gaussian Splatting is a brand-new method in real-time rendering.\cite{kerbl3DGaussianSplatting2023} provides a nascent method that rasterises 3D Gaussian, rather than raytracing (which is what we use). Gaussian Splatting is an interesting topic on its own, however, I will not be using this method because, while this method is good for real-time rendering, I will be conducting "physically-based" rendering. The former, while faster than the latter, but the latter is more accurate than the former. Since I would like to focus on accuracy, I will not be implementing this method.
+\subsubsection{Traditional Rasterisation}
+Traditional Rasterisation, using basic rendering techniques available, using the GPU, is similar to Gaussian Splatting, and while it is fast, by using specialist equipment (GPU), provides speed but not accuracy\footnote{This was a larger problem, when GPUs did not necessarily conform with IEEE 754, but most GPUs are accurate enough, the issue of time also comes into the question. Also the architecture of GPUs prevent efficient raytracing.}. 
+
+\subsection{Implementation Detail}
+This project will be implemented with C++. While there are "easier" and more readable languages, C++ provides efficiency unparralled to any other language. It's granular memory controls and threading support make it invaluable to a project of such caliber of complexity. 
+
 \end{document} 
