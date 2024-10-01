@@ -1,10 +1,75 @@
 \documentclass[../main.tex]{subfiles}
 
+% COME BACK ADD ALL THE IMAGES
 
 \begin{document}
 \section{Design Overview}
 In this chapter, I will outline the artefact's inner workings; showing which components are used where, and how they interact. 
 Much of the system has been informed by how \cite{pharrPhysicallyBasedRendering2016} designed their system, albeit modified to fit the use case.
 
+\subsection{Phases of Execution}
 
+Initially, the program creates its own representation of the scene being rendered. This is done by creating scene objects and materials
+and then adding them to the scene.
+
+Each object is treated as a \textit{hittable} object, which means that it can be hit by a ray. Note this is also how \cite{petershirleytrevordavidblackstevehollaschRayTracingOne}
+designed and called their system. A hittable object is defined as an abstract class, meaning that it can be inherited by other classes, and custom functions can be implemented 
+for each object.
+
+For example, the \textit{hittable} object offers a function \textit{hit} which returns a \textit{hit\_record}
+% add code of hittable
+
+And so with a sphere, we can implement a custom \textit{hit} function, that takes into account the parameters of the sphere.
+For demonstration purposes, we will derive this function in order to illustrate how the ray-hit algorithm works.
+
+\subsubsection{Ray-Sphere Intersection}
+Note that we have a ray $R(t) = A + tb$ where $A$ is the origin of the ray, $b$ is the direction of the ray, and $t$ is the distance from the origin.
+We also have a sphere with a center $C$ and a radius $r$.
+We can write the equation of the sphere, centered at the origin, with radius r as
+$$
+x^2 + y^2 + z^2 = r^2
+$$
+This can be thought of as also asking, whether a given point is inside, outside, or within the sphere.
+For us, there are only two possiblities we care about. Whether the ray is a tangent, and only touches
+the sphere at a point, or if it intersects the sphere at two points.
+To move towards this ideal goal, we can represent as the centre of the sphere as $C = (C_x, C_y, C_z)$, and move towards writing the equation of the sphere in terms of vectors.
+Let $P$ represent an arbitary point in 3D space, then we get:
+$$
+(C-P) \cdot (C-P) = r^2
+$$
+We can represent the point $P$, as a point on our ray, and thus we get:
+$$
+(C - (A + tb)) \cdot (C - (A + tb)) = r^2
+$$
+Writing in terms of t:
+$$
+t^2b \cdot b + 2t b \cdot (A - C) + (A - C) \cdot (A - C) - r^2 = 0
+$$
+This is in the form of the quadratic equation in terms of $t$, and can be thought of asking if there is a parameter $t$ for some ray, which touches or intersects the sphere.
+Using the quadratic formula, we can solve for $t$:
+$$
+a = b \cdot b, \quad b = 2b \cdot (A - C), \quad c = (A - C) \cdot (A - C) - r^2
+$$
+and t as 
+$$
+t = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
+If the discriminant $b^2 - 4ac$ is less than 0, then the ray does not intersect the sphere,
+if it is equal to 0, then the ray is tangent to the sphere, and if it is greater than 0, then the ray intersects the sphere at two points.
+%% add code and talk about it
+
+By allowing child classes to implement their own \textit{hit} function, we can easily add new objects to the scene, and the ray tracer will automatically detect them,
+so long as the hit function has been implemented correctly.
+
+We allow all objects to have a material associated with them, which is a class that defines how light interacts with the object, further 
+information on this will be provided in the appropiate section.
+
+Once all of the objects have been added to the scene, the program will begin the ray tracing process. In order to begin ray tracing, once must 
+obtain these rays from the camera.
+\subsubsection{Camera Model}
+For this project, we will use a very simple camera model, a pinhole camera. Pinhole cameras are the simplest form of camera, and are often used 
+in ray tracing algorithms as a beginner camera model. The camera is defined by a position, a look-at point, and a field of view. 
+%% Add reference to pinhole cameras
+The camera generates rays by shooting rays from the camera's position to the point on the screen, and then normalizing the vector to get a unit vector 
+as the direction of the ray. The camera generates rays in a grid pattern, and the number of rays generated is determined by the resolution of the image\cite{petershirleytrevordavidblackstevehollaschRayTracingOne}.
 \end{document}

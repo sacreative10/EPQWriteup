@@ -24,7 +24,16 @@ As the name suggests, this algorithm tries to stay true to the physics of the wo
 I intend to implement this algorithm not only because it is a excellent opportunity to mix the three subjects I do for A-Level together (Physics, Maths, Computing), but also as an challenging extension in the field, in which I will be considering a future in.
 \subsubsection{Success Criteria}
 The objective of this project is to create a piece of software, that given a scene description will produce an image, following the rules of physically based rendering. 
-TODO
+I aim to achieve the following:
+\begin{itemize}
+  \item Correct Ray-Object Intersection
+  \item Correct Ray-Object Reflection/Refraction
+  \item Correct Light Source Distribution
+  \item Correct Indirect Light Transport
+  \item Interesting Objects
+  \item Correct Materials 
+\end{itemize}
+I understand that knowing what the success criteria is vague, I hope to make these more concrete in the design overview. 
 \subsection{The Ray-tracing Algorithm}
 PBRT (Physically Based Ray-tracing), can be easily split up into several distinct componets in a "pipeline" or "story" of sorts. This can be done, primarily because PBRT is an algorithm, a series of steps, but also because elements of pipeline or story can easily be implemented independently, and understood independently, as a function with an input and an output.
 
@@ -46,6 +55,6 @@ Most algorithms usually have alternatives, and Physically Based Rendering also h
 Traditional Rasterisation, using basic rendering techniques available, using the GPU, is similar to Gaussian Splatting, and while it is fast, by using specialist equipment (GPU), provides speed but not accuracy\footnote{This was a larger problem, when GPUs did not necessarily conform with IEEE 754, but most GPUs are accurate enough, the issue of time also comes into the question. Also the architecture of GPUs prevent efficient raytracing.}. 
 
 \subsection{Implementation Detail}
-This project will be implemented with C++. While there are "easier" and more readable languages, C++ provides efficiency unparralled to any other language. It's granular memory controls and threading support make it invaluable to a project of such caliber of complexity. I talk more about this in the design overview.
+This project will be implemented with C++. While there are "easier" and more readable languages, C++ provides efficiency unparalleled to any other language. It's granular memory controls and threading support make it invaluable to a project of such caliber of complexity. I talk more about this in the design overview.
 
 \end{document} 
