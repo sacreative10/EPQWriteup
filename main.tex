@@ -17,6 +17,7 @@
 \usepackage{amssymb}                                    % special math symbols
 % \usepackage[Gray,squaren,thinqspace,thinspace]{SIunitsx} % elegant units
 \usepackage{listings}                                   % source code
+\usepackage{tikz}
 \usepackage[centering,noheadfoot,margin=1in]{geometry}
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{2ex plus 0.5ex minus 0.2ex} % whitespace between paragraphs
@@ -87,6 +88,7 @@
 
 \usepackage[style=nature]{biblatex}
 \addbibresource{Library.bib}
+\usepackage{microtype}
 
 
 \begin{document}
@@ -107,14 +109,14 @@
 
        \vfill
             
-       A thesis presented for an Extented Project Qualification
+       A thesis presented for an Extended Project Qualification
             
        \vspace{0.8cm}
      
             
        St Bartholomew's School\\
        United Kingdom\\
-       2024-03-10
+       \today
             
    \end{center}
 
@@ -123,15 +125,29 @@
 
 \onecolumn
 \tableofcontents
+
+\newpage
+
+\begin{abstract}
+This thesis covers a method of Photorealistic Rendering called Physically Based Ray-Tracing (or just Ray-Tracing). Within the introduction, 
+exists a brief history of the field, as well as the current state of the field. The research review covers the literature that was used to
+create this project. The design overview covers the design of the ray-tracer. The development section covers the implementation of the ray-tracer.
+Lastly, the conclusion and evaluation section covers the evaluation of the project, including the presentation.
+\end{abstract}
+
 \twocolumn
 
 
 
 \subfile{sections/Introduction}
-\subfile{sections/Research_Review.tex}
-\subfile{sections/Design_Overview.tex}
+\subfile{sections/Research_Review}
+\subfile{sections/Design_Overview}
+\subfile{sections/Development}
+\subfile{sections/Conclusion_Evaluation}
 \cleardoublepage
-\printbibliography
+\printbibliography[heading=bibintoc]
+\onecolumn
+\subfile{sections/Appendix}
 
 
 \end{document}

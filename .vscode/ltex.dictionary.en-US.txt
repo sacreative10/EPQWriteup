@@ -1,0 +1,8 @@
+percieves
+Lambertian
+BxDFs
+OctTree
+octants
+Perlin
+photorealism
+Möller-Trumbore

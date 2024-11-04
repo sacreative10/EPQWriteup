@@ -5,20 +5,20 @@
 \section{Introduction}
 Since the inception of computing technology, there has been an concerted effort to replicate observable phenomena from the natural world as a means of solving problems that once couldn't be solved without computers.
 \newline
-For example, Craig Reynolds in his seminal paper \cite{reynoldsFlocksHerdsSchools1987} is an excellent case study, of such an example. Reynolds defined three very simple rules pertaining to the behaviours of birds in a flock. These rules are: 
+For example, Craig Reynolds in his seminal paper \cite{reynolds_flocks_1987} is an excellent case study, of such an example. Reynolds defined three very simple rules pertaining to the behaviours of birds in a flock. These rules are: 
 \begin{itemize}
   \item Alignment: the birds will steer towards the average heading of their peers.
   \item Cohesion: the birds will steer towards the center of the mass of its peers.  
   \item Separation the birds will steer away from colliding with their peers.
 \end{itemize}
-These simple laws, though primitive, produce a "realistic" approximation of how birds behave in actuality, so much so, that the US Army uses this algorithm, for their UAV-UGV programs \cite{saskaCoordinationNavigationHeterogeneous2014}.
+These simple laws, though primitive, produce a "realistic" approximation of how birds behave in actuality, so much so, that the US Army uses this algorithm, for their UAV-UGV programs \cite{saska_coordination_2014}.
 
 In essence, computer simulation provides a "good enough" approximation for the theories encompassing the real world, crafted by mathematicians and physicists alike.
 \subsection{Motivation}
 Rendering is the process of producing an image from a description of a 3D scene. This daunting task can be easily understood by asking: Given a set configuration of a room, what would a camera see, in a set location within the room. 
 If left pondering, one can easily come to a reasonable algorithm, befit the style of rendering they want. For example, a very simple approach could be to check if a light ray enters the camera from light sources (if any) within the room. If so, then the camera could record a colour based on some product of the colours the light ray hit before it entered the camera. 
 
-However, I intend to implement the "Physically Based" rendering algorithm.
+However, I intend to implement the "Physically Based" ray-tracing algorithm.
 As the name suggests, this algorithm tries to stay true to the physics of the world, imitating its behaviour as matter and light mesh together. It differentiates different materials dependent on their reaction with light incident upon them, as well as how light itself reacts through mediums not necessarily vacuums, like fog. 
 
 I intend to implement this algorithm not only because it is a excellent opportunity to mix the three subjects I do for A-Level together (Physics, Maths, Computing), but also as an challenging extension in the field, in which I will be considering a future in.
@@ -33,28 +33,28 @@ I aim to achieve the following:
   \item Interesting Objects
   \item Correct Materials 
 \end{itemize}
-I understand that knowing what the success criteria is vague, I hope to make these more concrete in the design overview. 
+I understand that knowing what the success criteria is vague, I hope to make these more concrete in the design overview.
 \subsection{The Ray-tracing Algorithm}
 PBRT (Physically Based Ray-tracing), can be easily split up into several distinct componets in a "pipeline" or "story" of sorts. This can be done, primarily because PBRT is an algorithm, a series of steps, but also because elements of pipeline or story can easily be implemented independently, and understood independently, as a function with an input and an output.
 
 Going back to the idea of thinking PBRT as imagining a camera in a room, we can easily demarcate different functions of the algorithm.
-The following steps are derivative of the steps outlined in \cite{pharrPhysicallyBasedRendering2016}.
+The following steps are derivative of the steps outlined in \cite{pharr_physically_2016}.
 \begin{itemize}
   \item Camera model: The camera model given its initial location and orientation within 3D space, must provide a method of generating rays in a scene (Reference place ahead). It must also do pre and post-processing if necessary (.i.e. different film types).
   \item Ray propagation: The ray generated from the camera will traverse the scene differently, depending on which medium it is in. For example, in a vacuum, all light energy is conserved, but that is a rare case on Earth, therefore extra calculations must occur to account for different mediums (like through a fog).
   \item Ray-object Intersection: One can only "trace rays", if said ray hits (and bounces off) an object. The program must detect when there is a collision between an object and a ray, and appropriately "cause" the ray to bounce of the object in the appropriate direction.
     The algorithm must also distinguish between different objects (usually returning the closest one). Also, the ray tracer can only generate images as sophisticated as the objects it can detect, so the program must also provide intersection tests with different kinds objects (triangles, circles, etc). Due to this, finding intersections is the most expensive process of the entire algorithm, so the program must also provide some method of culling objects not near the ray.
   \item Light sources: Without a light in a room, it would be pointless to render a scene. The ray tracer must accurately describe a light distribution within a scene. As a part of this, the tracer must also distinguish whether a point in a scene has any light shining on it or not.
-  \item Indirect Light Transport: Because light can arrive at a surface after bouncing off or passing through other surfaces, it is usually necessary to trace additional rays originating at the surface to fully capture this effect \cite{pharrPhysicallyBasedRendering2016}. 
+  \item Indirect Light Transport: Because light can arrive at a surface after bouncing off or passing through other surfaces, it is usually necessary to trace additional rays originating at the surface to fully capture this effect \cite{pharr_physically_2016}. 
 \end{itemize}
 \subsection{Alternatives}
 Most algorithms usually have alternatives, and Physically Based Rendering also has alternatives
 \subsubsection{3D Gaussian Splatting}
-3D Gaussian Splatting is a brand-new method in real-time rendering.\cite{kerbl3DGaussianSplatting2023} provides a nascent method that rasterises 3D Gaussian, rather than raytracing (which is what we use). Gaussian Splatting is an interesting topic on its own, however, I will not be using this method because, while this method is good for real-time rendering, I will be conducting "physically-based" rendering. The former, while faster than the latter, but the latter is more accurate than the former. Since I would like to focus on accuracy, I will not be implementing this method.
+3D Gaussian Splatting is a brand-new method in real-time rendering.\cite{kerbl_3d_2023} provides a nascent method that rasterises 3D Gaussian, rather than raytracing (which is what we use). Gaussian Splatting is an interesting topic on its own, however, I will not be using this method because, while this method is good for real-time rendering, I will be conducting "physically-based" rendering. The former, while faster than the latter, but the latter is more accurate than the former. Since I would like to focus on accuracy, I will not be implementing this method.
 \subsubsection{Traditional Rasterisation}
 Traditional Rasterisation, using basic rendering techniques available, using the GPU, is similar to Gaussian Splatting, and while it is fast, by using specialist equipment (GPU), provides speed but not accuracy\footnote{This was a larger problem, when GPUs did not necessarily conform with IEEE 754, but most GPUs are accurate enough, the issue of time also comes into the question. Also the architecture of GPUs prevent efficient raytracing.}. 
 
 \subsection{Implementation Detail}
-This project will be implemented with C++. While there are "easier" and more readable languages, C++ provides efficiency unparalleled to any other language. It's granular memory controls and threading support make it invaluable to a project of such caliber of complexity. I talk more about this in the design overview.
+This project will be implemented with C++. While there are "easier" and more readable languages, C++ provides efficiency unparalleled to any other language. Its granular memory controls and threading support make it invaluable to a project of such caliber of complexity. I talk more about this in the design overview.
 
 \end{document} 

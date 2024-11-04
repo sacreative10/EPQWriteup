@@ -1,0 +1,723 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{reynolds_flocks_1987}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=c565938772b0a9629e74a8f8f657693b}{%
+           family={Reynolds},
+           familyi={R\bibinitperiod},
+           given={Craig\bibnamedelima W.},
+           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{c565938772b0a9629e74a8f8f657693b}
+      \strng{fullhash}{c565938772b0a9629e74a8f8f657693b}
+      \strng{fullhashraw}{c565938772b0a9629e74a8f8f657693b}
+      \strng{bibnamehash}{c565938772b0a9629e74a8f8f657693b}
+      \strng{authorbibnamehash}{c565938772b0a9629e74a8f8f657693b}
+      \strng{authornamehash}{c565938772b0a9629e74a8f8f657693b}
+      \strng{authorfullhash}{c565938772b0a9629e74a8f8f657693b}
+      \strng{authorfullhashraw}{c565938772b0a9629e74a8f8f657693b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The aggregate motion of a flock of birds, a herd of land animals, or a school of fish is a beautiful and familiar part of the natural world. But this type of complex motion is rarely seen in computer animation. This paper explores an approach based on simulation as an alternative to scripting the paths of each bird individually. The simulated flock is an elaboration of a particle systems, with the simulated birds being the particles. The aggregate motion of the simulated flock is created by a distributed behavioral model much like that at work in a natural flock; the birds choose their own course. Each simulated bird is implemented as an independent actor that navigates according to its local perception of the dynamic environment, the laws of simulated physics that rule its motion, and a set of behaviors programmed into it by the "animator." The aggregate motion of the simulated flock is the result of the dense interaction of the relatively simple behaviors of the individual simulated birds.}
+      \field{booktitle}{Proceedings of the 14th annual conference on {Computer} graphics and interactive techniques}
+      \field{isbn}{978-0-89791-227-3}
+      \field{month}{8}
+      \field{series}{{SIGGRAPH} '87}
+      \field{shorttitle}{Flocks, herds and schools}
+      \field{title}{Flocks, herds and schools: a distributed behavioral model}
+      \field{urlday}{11}
+      \field{urlmonth}{3}
+      \field{urlyear}{2024}
+      \field{year}{1987}
+      \field{urldateera}{ce}
+      \field{pages}{25\bibrangedash 34}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/37401.37406
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/home/sohaibalam/Zotero/storage/JXQDKWLB/Reynolds - 1987 - Flocks, herds and schools A distributed behaviora.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://dl.acm.org/doi/10.1145/37401.37406
+      \endverb
+      \verb{url}
+      \verb https://dl.acm.org/doi/10.1145/37401.37406
+      \endverb
+    \endentry
+    \entry{saska_coordination_2014}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=bf219f96a5ef126a473bacf7e7ce5aa2}{%
+           family={Saska},
+           familyi={S\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8375b35a4dfbc305d9506e6c4b68a890}{%
+           family={Vonásek},
+           familyi={V\bibinitperiod},
+           given={Vojtěch},
+           giveni={V\bibinitperiod}}}%
+        {{hash=9a5b2223e394a820b0995dad94395546}{%
+           family={Krajník},
+           familyi={K\bibinitperiod},
+           given={Tomáš},
+           giveni={T\bibinitperiod}}}%
+        {{hash=871e635556dcb4b4a2a0025db6dce0cf}{%
+           family={Přeučil},
+           familyi={P\bibinitperiod},
+           given={Libor},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{1696be9174a534e9efcc09da123d646b}
+      \strng{fullhash}{a161dfb8a989bbf49fbb2253e40c50c1}
+      \strng{fullhashraw}{a161dfb8a989bbf49fbb2253e40c50c1}
+      \strng{bibnamehash}{a161dfb8a989bbf49fbb2253e40c50c1}
+      \strng{authorbibnamehash}{a161dfb8a989bbf49fbb2253e40c50c1}
+      \strng{authornamehash}{1696be9174a534e9efcc09da123d646b}
+      \strng{authorfullhash}{a161dfb8a989bbf49fbb2253e40c50c1}
+      \strng{authorfullhashraw}{a161dfb8a989bbf49fbb2253e40c50c1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{An approach for coordination and control of 3D heterogeneous formations of unmanned aerial and ground vehicles under hawk-eye-like relative localization is presented in this paper. The core of the method lies in the use of visual top-view feedback from flying robots for the stabilization of the entire group in a leader–follower formation. We formulate a novel model predictive control-based methodology for guiding the formation. The method is employed to solve the trajectory planning and control of a virtual leader into a desired target region. In addition, the method is used for keeping the following vehicles in the desired shape of the group. The approach is designed to ensure direct visibility between aerial and ground vehicles, which is crucial for the formation stabilization using the hawk-eye-like approach. The presented system is verified in numerous experiments inspired by search-and-rescue applications, where the formation acts as a searching phalanx. In addition, stability and convergence analyses are provided to explicitly determine the limitations of the method in real-world applications.}
+      \field{issn}{0278-3649}
+      \field{journaltitle}{The International Journal of Robotics Research}
+      \field{month}{9}
+      \field{note}{Publisher: SAGE Publications Ltd STM}
+      \field{number}{10}
+      \field{title}{Coordination and navigation of heterogeneous {MAV}–{UGV} formations localized by a ‘hawk-eye’-like approach under a model predictive control scheme}
+      \field{urlday}{13}
+      \field{urlmonth}{3}
+      \field{urlyear}{2024}
+      \field{volume}{33}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \field{pages}{1393\bibrangedash 1412}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1177/0278364914530482
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1177/0278364914530482
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1177/0278364914530482
+      \endverb
+    \endentry
+    \entry{pharr_physically_2016}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=c69ff00a5e1719a4ad2dddd6254ac3c9}{%
+           family={Pharr},
+           familyi={P\bibinitperiod},
+           given={Matt},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5f630e56bb6a31ced5d442a3b40cc68d}{%
+           family={Jakob},
+           familyi={J\bibinitperiod},
+           given={Wenzel},
+           giveni={W\bibinitperiod}}}%
+        {{hash=51e2894a269d907342539becd626aaed}{%
+           family={Humphreys},
+           familyi={H\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Francisco, CA, USA}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann Publishers Inc.}%
+      }
+      \strng{namehash}{28e9948901bdb51628b2d6c9f68f7894}
+      \strng{fullhash}{560e3c41490c75198ea30b388f4f7912}
+      \strng{fullhashraw}{560e3c41490c75198ea30b388f4f7912}
+      \strng{bibnamehash}{560e3c41490c75198ea30b388f4f7912}
+      \strng{authorbibnamehash}{560e3c41490c75198ea30b388f4f7912}
+      \strng{authornamehash}{28e9948901bdb51628b2d6c9f68f7894}
+      \strng{authorfullhash}{560e3c41490c75198ea30b388f4f7912}
+      \strng{authorfullhashraw}{560e3c41490c75198ea30b388f4f7912}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3rd}
+      \field{isbn}{978-0-12-800645-0}
+      \field{month}{11}
+      \field{title}{Physically {Based} {Rendering}: {From} {Theory} to {Implementation} (3rd ed.)}
+      \field{year}{2016}
+    \endentry
+    \entry{kerbl_3d_2023}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=c73d638ffd25328757379835747302ff}{%
+           family={Kerbl},
+           familyi={K\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod}}}%
+        {{hash=2ab758a425dcd6ed440f4ae0d994dc2c}{%
+           family={Kopanas},
+           familyi={K\bibinitperiod},
+           given={Georgios},
+           giveni={G\bibinitperiod}}}%
+        {{hash=316b1168be114f1d009c409f79b6c48b}{%
+           family={Leimkuehler},
+           familyi={L\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=70ecb4c4a672f7c20e4b53b57d5a437e}{%
+           family={Drettakis},
+           familyi={D\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{38ed96775a79b080a25e1e45e0aaa88a}
+      \strng{fullhash}{503c9e8d8b297636d0a0f5caf4da4070}
+      \strng{fullhashraw}{503c9e8d8b297636d0a0f5caf4da4070}
+      \strng{bibnamehash}{503c9e8d8b297636d0a0f5caf4da4070}
+      \strng{authorbibnamehash}{503c9e8d8b297636d0a0f5caf4da4070}
+      \strng{authornamehash}{38ed96775a79b080a25e1e45e0aaa88a}
+      \strng{authorfullhash}{503c9e8d8b297636d0a0f5caf4da4070}
+      \strng{authorfullhashraw}{503c9e8d8b297636d0a0f5caf4da4070}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Radiance Field methods have recently revolutionized novel-view synthesis of scenes captured with multiple photos or videos. However, achieving high visual quality still requires neural networks that are costly to train and render, while recent faster methods inevitably trade off speed for quality. For unbounded and complete scenes (rather than isolated objects) and 1080p resolution rendering, no current method can achieve real-time display rates. We introduce three key elements that allow us to achieve state-of-the-art visual quality while maintaining competitive training times and importantly allow high-quality real-time (≥ 30 fps) novel-view synthesis at 1080p resolution. First, starting from sparse points produced during camera calibration, we represent the scene with 3D Gaussians that preserve desirable properties of continuous volumetric radiance fields for scene optimization while avoiding unnecessary computation in empty space; Second, we perform interleaved optimization/density control of the 3D Gaussians, notably optimizing anisotropic covariance to achieve an accurate representation of the scene; Third, we develop a fast visibility-aware rendering algorithm that supports anisotropic splatting and both accelerates training and allows realtime rendering. We demonstrate state-of-the-art visual quality and real-time rendering on several established datasets.}
+      \field{issn}{0730-0301, 1557-7368}
+      \field{journaltitle}{ACM Transactions on Graphics}
+      \field{month}{8}
+      \field{number}{4}
+      \field{title}{{3D} {Gaussian} {Splatting} for {Real}-{Time} {Radiance} {Field} {Rendering}}
+      \field{urlday}{20}
+      \field{urlmonth}{3}
+      \field{urlyear}{2024}
+      \field{volume}{42}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 14}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1145/3592433
+      \endverb
+      \verb{file}
+      \verb Kerbl et al. - 2023 - 3D Gaussian Splatting for Real-Time Radiance Field.pdf:/home/sohaibalam/Zotero/storage/54IPHHPB/Kerbl et al. - 2023 - 3D Gaussian Splatting for Real-Time Radiance Field.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://dl.acm.org/doi/10.1145/3592433
+      \endverb
+      \verb{url}
+      \verb https://dl.acm.org/doi/10.1145/3592433
+      \endverb
+    \endentry
+    \entry{bramesco_terminator_2021}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6f30492d21f2ea1d1c8f9b9877ea0c53}{%
+           family={Bramesco},
+           familyi={B\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en-GB}%
+      }
+      \strng{namehash}{6f30492d21f2ea1d1c8f9b9877ea0c53}
+      \strng{fullhash}{6f30492d21f2ea1d1c8f9b9877ea0c53}
+      \strng{fullhashraw}{6f30492d21f2ea1d1c8f9b9877ea0c53}
+      \strng{bibnamehash}{6f30492d21f2ea1d1c8f9b9877ea0c53}
+      \strng{authorbibnamehash}{6f30492d21f2ea1d1c8f9b9877ea0c53}
+      \strng{authornamehash}{6f30492d21f2ea1d1c8f9b9877ea0c53}
+      \strng{authorfullhash}{6f30492d21f2ea1d1c8f9b9877ea0c53}
+      \strng{authorfullhashraw}{6f30492d21f2ea1d1c8f9b9877ea0c53}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{James Cameron’s show-stopping follow-up to his surprise sci-fi hit was a spectacular display of both stunts and soul but its major strides caused others to trip up}
+      \field{chapter}{Film}
+      \field{issn}{0261-3077}
+      \field{journaltitle}{The Guardian}
+      \field{month}{7}
+      \field{shorttitle}{Terminator 2 at 30}
+      \field{title}{Terminator 2 at 30: groundbreaking sequel that led to {CGI} laziness}
+      \field{urlday}{14}
+      \field{urlmonth}{3}
+      \field{urlyear}{2024}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/sohaibalam/Zotero/storage/64672TAL/terminator-2-at-30-groundbreaking-sequel-that-led-to-cgi-laziness.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.theguardian.com/film/2021/jul/03/terminator-2-at-30-groundbreaking-sequel-that-led-to-cgi-laziness
+      \endverb
+      \verb{url}
+      \verb https://www.theguardian.com/film/2021/jul/03/terminator-2-at-30-groundbreaking-sequel-that-led-to-cgi-laziness
+      \endverb
+      \keyw{Action and adventure films,Arnold Schwarzenegger,Culture,Film,James Cameron,Science fiction and fantasy films,Terminator 2: Judgment Day,The Terminator,Thrillers}
+    \endentry
+    \entry{glassner_introduction_1989}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=d018b0af1d5d18f2030601b7ed7f99c8}{%
+           family={Glassner},
+           familyi={G\bibinitperiod},
+           given={Andrew\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann}%
+      }
+      \strng{namehash}{d018b0af1d5d18f2030601b7ed7f99c8}
+      \strng{fullhash}{d018b0af1d5d18f2030601b7ed7f99c8}
+      \strng{fullhashraw}{d018b0af1d5d18f2030601b7ed7f99c8}
+      \strng{bibnamehash}{d018b0af1d5d18f2030601b7ed7f99c8}
+      \strng{authorbibnamehash}{d018b0af1d5d18f2030601b7ed7f99c8}
+      \strng{authornamehash}{d018b0af1d5d18f2030601b7ed7f99c8}
+      \strng{authorfullhash}{d018b0af1d5d18f2030601b7ed7f99c8}
+      \strng{authorfullhashraw}{d018b0af1d5d18f2030601b7ed7f99c8}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The creation of ever more realistic 3-D images is central to the development of computer graphics. The ray tracing technique has become one of the most popular and powerful means by which photo-realistic images can now be created. The simplicity, elegance and ease of implementation makes ray tracing an essential part of understanding and exploiting state-of-the-art computer graphics.An Introduction to Ray Tracing develops from fundamental principles to advanced applications, providing "how-to" procedures as well as a detailed understanding of the scientific foundations of ray tracing. It is also richly illustrated with four-color and black-and-white plates. This is a book which will be welcomed by all concerned with modern computer graphics, image processing, and computer-aided design. Provides practical "how-to" information Contains high quality color plates of images created using ray tracing techniques Progresses from a basic understanding to the advanced science and application of ray tracing}
+      \field{isbn}{978-0-12-286160-4}
+      \field{month}{1}
+      \field{note}{Google-Books-ID: YPblYyLqBM4C}
+      \field{title}{An {Introduction} to {Ray} {Tracing}}
+      \field{year}{1989}
+      \keyw{Computers / Artificial Intelligence / Computer Vision \& Pattern Recognition,Computers / Computer Science,Computers / Image Processing,Computers / Optical Data Processing,Computers / Software Development \& Engineering / Computer Graphics}
+    \endentry
+    \entry{higham_accuracy_2002}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=5bec9d02065c9b35d45c881a24f7a1cd}{%
+           family={Higham},
+           familyi={H\bibinitperiod},
+           given={Nicholas\bibnamedelima J.},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Philadelphia}%
+      }
+      \list{publisher}{2}{%
+        {Society for Industrial}%
+        {Applied Mathematics}%
+      }
+      \strng{namehash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{fullhash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{fullhashraw}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{bibnamehash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{authorbibnamehash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{authornamehash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{authorfullhash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{authorfullhashraw}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd ed}
+      \field{isbn}{978-0-89871-521-7}
+      \field{title}{Accuracy and stability of numerical algorithms}
+      \field{year}{2002}
+      \verb{file}
+      \verb Higham - 2002 - Accuracy and stability of numerical algorithms.pdf:/home/sohaibalam/Zotero/storage/JTTVUTS3/Higham - 2002 - Accuracy and stability of numerical algorithms.pdf:application/pdf
+      \endverb
+      \keyw{Computer algorithms,Data processing,Numerical analysis}
+    \endentry
+    \entry{ap_professional_firm_ap_1995}{book}{}{}
+      \name{editor}{2}{}{%
+        {{hash=a5883c4c64e6512dccf9843b0e409358}{%
+           family={(Firm)},
+           familyi={(\bibinitperiod},
+           given={AP\bibnamedelima Professional},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=b00bb7f4110316ce466e02c4b00b5b24}{%
+           family={(Firm)},
+           familyi={(\bibinitperiod},
+           given={Electrographics\bibnamedelimb Electronic\bibnamedelima Imaging},
+           giveni={E\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Chestnut Hill, Mass.}%
+      }
+      \list{publisher}{1}{%
+        {AP Professional}%
+      }
+      \strng{namehash}{05541178d24a9625b755e8f6265c7446}
+      \strng{fullhash}{05541178d24a9625b755e8f6265c7446}
+      \strng{fullhashraw}{05541178d24a9625b755e8f6265c7446}
+      \strng{bibnamehash}{05541178d24a9625b755e8f6265c7446}
+      \strng{editorbibnamehash}{05541178d24a9625b755e8f6265c7446}
+      \strng{editornamehash}{05541178d24a9625b755e8f6265c7446}
+      \strng{editorfullhash}{05541178d24a9625b755e8f6265c7446}
+      \strng{editorfullhashraw}{05541178d24a9625b755e8f6265c7446}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Contains digitized versions of six graphics books. Searchable by key word, table of contents, author names, and contributor names}
+      \field{isbn}{978-0-12-059756-7}
+      \field{note}{Medium: computer file}
+      \field{title}{The {AP} {Professional} graphics {CD}-{ROM}}
+      \field{year}{1995}
+      \verb{file}
+      \verb AP Professional (Firm) and Electrographics Electronic Imaging (Firm) - 1995 - The AP Professional graphics CD-ROM.pdf:/home/sohaibalam/Zotero/storage/BQDE7NNV/AP Professional (Firm) and Electrographics Electronic Imaging (Firm) - 1995 - The AP Professional graphics CD-ROM.pdf:application/pdf
+      \endverb
+      \keyw{Computer graphics,Databases,Dictionaries,Digital computer simulation,Digital techniques Databases,Human-computer interaction,Image processing,Radiosity,Virtual reality}
+    \endentry
+    \entry{woop_watertight_2013}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=7ba74a80747fb1ca7a98971a9ea052b2}{%
+           family={Woop},
+           familyi={W\bibinitperiod},
+           given={Sven},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d5206160888a861e1bbc5fbe55b318ef}{%
+           family={Benthin},
+           familyi={B\bibinitperiod},
+           given={Carsten},
+           giveni={C\bibinitperiod}}}%
+        {{hash=d429aca2a7aebc42bbf44da929124fbb}{%
+           family={Wald},
+           familyi={W\bibinitperiod},
+           given={Ingo},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{b42fe65998969447710205e3404fed1c}
+      \strng{fullhash}{ba6ad806728cc365d7d2271c5ec311fe}
+      \strng{fullhashraw}{ba6ad806728cc365d7d2271c5ec311fe}
+      \strng{bibnamehash}{ba6ad806728cc365d7d2271c5ec311fe}
+      \strng{authorbibnamehash}{ba6ad806728cc365d7d2271c5ec311fe}
+      \strng{authornamehash}{b42fe65998969447710205e3404fed1c}
+      \strng{authorfullhash}{ba6ad806728cc365d7d2271c5ec311fe}
+      \strng{authorfullhashraw}{ba6ad806728cc365d7d2271c5ec311fe}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose a novel algorithm for ray/triangle intersection tests that, unlike most other such algorithms, is watertight at both edges and vertices for adjoining triangles, while also maintaining the same performance as simpler algorithms that are not watertight. Our algorithm is straightforward to implement, and is, in particular, robust for all triangle conﬁgurations including extreme cases, such as small and needle-like triangles. We achieve this robustness by transforming the intersection problem using a translation, shear, and scale transformation into a coordinate space where the ray starts at the origin and is directed, with unit length, along one coordinate axis. This simpliﬁes the remaining intersection problem to a 2D problem where edge tests can be done conservatively using single-precision ﬂoating-point arithmetic. Using our algorithm, numerically challenging cases, where single precision is insufﬁcient, can be detected with almost no overhead and can be accurately handled through a (rare) fallback to double precision. Because our algorithm is conservative but not exact, we must dynamically enlarge bounds during BVH traversal to conservatively bound the triangles intersected.}
+      \field{number}{1}
+      \field{title}{Watertight {Ray}/{Triangle} {Intersection}}
+      \field{volume}{2}
+      \field{year}{2013}
+      \verb{file}
+      \verb Woop et al. - 2013 - Watertight RayTriangle Intersection.pdf:/home/sohaibalam/Zotero/storage/HP2GHL8D/Woop et al. - 2013 - Watertight RayTriangle Intersection.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{peter_shirley_trevor_david_black_steve_hollasch_ray_nodate}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=323119cc258336cb5f9c8eb0a63446b4}{%
+           family={{Peter Shirley, Trevor David Black, Steve Hollasch}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{323119cc258336cb5f9c8eb0a63446b4}
+      \strng{fullhash}{323119cc258336cb5f9c8eb0a63446b4}
+      \strng{fullhashraw}{323119cc258336cb5f9c8eb0a63446b4}
+      \strng{bibnamehash}{323119cc258336cb5f9c8eb0a63446b4}
+      \strng{authorbibnamehash}{323119cc258336cb5f9c8eb0a63446b4}
+      \strng{authornamehash}{323119cc258336cb5f9c8eb0a63446b4}
+      \strng{authorfullhash}{323119cc258336cb5f9c8eb0a63446b4}
+      \strng{authorfullhashraw}{323119cc258336cb5f9c8eb0a63446b4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Ray {Tracing} in {One} {Weekend}}
+      \field{urlday}{20}
+      \field{urlmonth}{8}
+      \field{urlyear}{2023}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Ray Tracing in One Weekend:/home/sohaibalam/Zotero/storage/BDP6J2SQ/RayTracingInOneWeekend.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://raytracing.github.io/books/RayTracingInOneWeekend.html#citingthisbook/basicdata
+      \endverb
+      \verb{url}
+      \verb https://raytracing.github.io/books/RayTracingInOneWeekend.html#citingthisbook/basicdata
+      \endverb
+    \endentry
+    \entry{cohen_color_1985}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=07b89f7275fcbb505a484de5ec142a0b}{%
+           family={Cohen},
+           familyi={C\bibinitperiod},
+           given={Jozef\bibnamedelima B.},
+           giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=7bf2ea0e05a1852ba8db7d65527307ec}{%
+           family={Kappauf},
+           familyi={K\bibinitperiod},
+           given={William\bibnamedelima E.},
+           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7427cbe3b1cd74a79b2c533ea17a5ff}
+      \strng{fullhash}{a7427cbe3b1cd74a79b2c533ea17a5ff}
+      \strng{fullhashraw}{a7427cbe3b1cd74a79b2c533ea17a5ff}
+      \strng{bibnamehash}{a7427cbe3b1cd74a79b2c533ea17a5ff}
+      \strng{authorbibnamehash}{a7427cbe3b1cd74a79b2c533ea17a5ff}
+      \strng{authornamehash}{a7427cbe3b1cd74a79b2c533ea17a5ff}
+      \strng{authorfullhash}{a7427cbe3b1cd74a79b2c533ea17a5ff}
+      \strng{authorfullhashraw}{a7427cbe3b1cd74a79b2c533ea17a5ff}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This paper explores the consequences of Wyszecki's hypothesis concerning metameric stimuli, that any radiometric function (column matrix N) comprises two components -- a fundamental metamer (column matrix N*) and a metameric black (column matrix B); N*=N-B. The fundamental metamer is unique and identical for all radiometric functions in a metameric suite. The metameric black has tristimulus values of 0, 0, 0 with all functions in color space and is different for each radiometric function in a metameric suite. Matrix R, derived by Cohen and Kappauf in 1982, is equal to A(A′ A)-1A′, where A is any matrix of color mixture functions. Premultiplication of matrix N by matrix R "kicks out" the metameric black, leaving the fundamental metamer, and thus mathematically simulates the color-processing mechanism of the visual system; RN=N*. Given any matrix A, the fundamental metamers of the primaries generating matrix A may be derived from the color mixture functions in matrix A. The paper proves and demonstrates that tristimulus values (rows of matrix A) are dimensionless weights on the fundamental metamers of the primaries (columns of matrix E). A given color mixture function does not invariably weight the same fundamental metamer, but depends on the entire triplet of primaries. The paper develops an invariant fundamental metamer space, governed by the theorems of Euclidean geometry, where every fundamental metamer has two representations: (a) a unique, invariant vector -- the vector fundamental metamer and (b) the locus of scalar products between the vector fundamental metamer (for the color stimulus) and all vector fundamental metamers representing monochromatic stimuli spanning the visible spectrum -- which is the invariant scalar fundamental metamer as originally conceived by Wyszecki. Two systems of color specification (other than tristimulus values) are disclosed. Strategic observation locates three orthogonal fundamental metamers of monochromatic stimuli. Various theoretical properties of the fundamental metamer space are developed. Several applications are discussed. The research on which this paper is based was conducted by Jozef B. Cohen and William E. Kappauf. Professor Kappauf died on October 2, 1983; the present paper was written by Professor Cohen.}
+      \field{issn}{0002-9556}
+      \field{journaltitle}{The American Journal of Psychology}
+      \field{note}{Publisher: University of Illinois Press}
+      \field{number}{2}
+      \field{shorttitle}{Color {Mixture} and {Fundamental} {Metamers}}
+      \field{title}{Color {Mixture} and {Fundamental} {Metamers}: {Theory}, {Algebra}, {Geometry}, {Application}}
+      \field{urlday}{18}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{98}
+      \field{year}{1985}
+      \field{urldateera}{ce}
+      \field{pages}{171\bibrangedash 259}
+      \range{pages}{89}
+      \verb{doi}
+      \verb 10.2307/1422442
+      \endverb
+      \verb{file}
+      \verb JSTOR Full Text PDF:/home/sohaibalam/Zotero/storage/6DJZIABM/Cohen and Kappauf - 1985 - Color Mixture and Fundamental Metamers Theory, Al.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.jstor.org/stable/1422442
+      \endverb
+      \verb{url}
+      \verb https://www.jstor.org/stable/1422442
+      \endverb
+    \endentry
+    \entry{arvo_transforming_1990}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{hash=168ee803763703055c8649e54352f3e7}{%
+           family={Arvo},
+           familyi={A\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=49e15617b637c77345e910d0f39d2c8c}{%
+           family={Glassner},
+           familyi={G\bibinitperiod},
+           given={ANDREW\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Diego}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann}%
+      }
+      \strng{namehash}{168ee803763703055c8649e54352f3e7}
+      \strng{fullhash}{168ee803763703055c8649e54352f3e7}
+      \strng{fullhashraw}{168ee803763703055c8649e54352f3e7}
+      \strng{bibnamehash}{168ee803763703055c8649e54352f3e7}
+      \strng{authorbibnamehash}{168ee803763703055c8649e54352f3e7}
+      \strng{authornamehash}{168ee803763703055c8649e54352f3e7}
+      \strng{authorfullhash}{168ee803763703055c8649e54352f3e7}
+      \strng{authorfullhashraw}{168ee803763703055c8649e54352f3e7}
+      \strng{editorbibnamehash}{49e15617b637c77345e910d0f39d2c8c}
+      \strng{editornamehash}{49e15617b637c77345e910d0f39d2c8c}
+      \strng{editorfullhash}{49e15617b637c77345e910d0f39d2c8c}
+      \strng{editorfullhashraw}{49e15617b637c77345e910d0f39d2c8c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Graphics {Gems}}
+      \field{isbn}{978-0-08-050753-8}
+      \field{month}{1}
+      \field{title}{{TRANSFORMING} {AXIS}-{ALIGNED} {BOUNDING} {BOXES}}
+      \field{urlday}{9}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{year}{1990}
+      \field{urldateera}{ce}
+      \field{pages}{548\bibrangedash 550}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1016/B978-0-08-050753-8.50119-4
+      \endverb
+      \verb{file}
+      \verb ScienceDirect Snapshot:/home/sohaibalam/Zotero/storage/YDQMV3ZK/B9780080507538501194.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/B9780080507538501194
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/B9780080507538501194
+      \endverb
+    \endentry
+    \entry{wald_fast_2007}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=d429aca2a7aebc42bbf44da929124fbb}{%
+           family={Wald},
+           familyi={W\bibinitperiod},
+           given={Ingo},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Ulm}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{d429aca2a7aebc42bbf44da929124fbb}
+      \strng{fullhash}{d429aca2a7aebc42bbf44da929124fbb}
+      \strng{fullhashraw}{d429aca2a7aebc42bbf44da929124fbb}
+      \strng{bibnamehash}{d429aca2a7aebc42bbf44da929124fbb}
+      \strng{authorbibnamehash}{d429aca2a7aebc42bbf44da929124fbb}
+      \strng{authornamehash}{d429aca2a7aebc42bbf44da929124fbb}
+      \strng{authorfullhash}{d429aca2a7aebc42bbf44da929124fbb}
+      \strng{authorfullhashraw}{d429aca2a7aebc42bbf44da929124fbb}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With ray traversal performance reaching the point where real-time ray tracing becomes practical, ray tracing research is now shifting away from faster traversal, and towards the question what has to be done to use it in truly interactive applications such as games. Such applications are problematic because when geometry changes every frame, the ray tracer’s internal index data structures are no longer valid. Fully rebuilding all data structures every frame is the most general approach to handling changing geometry, but was long considered impractical except for grid-based grid based ray tracers, trivial scenes, or reduced quality of the index structure. In this paper, we investigate how some of the fast, approximate construction techniques that have recently been proposed for kd-trees can also be applied to bounding volume hierarchies (BVHs). We argue that these work even better for BVHs than they do for kd-trees, and demonstrate that when using those techniques, BVHs can be rebuilt up to 10× faster than competing kd-tree based techniques.}
+      \field{booktitle}{2007 {IEEE} {Symposium} on {Interactive} {Ray} {Tracing}}
+      \field{isbn}{978-1-4244-1629-5}
+      \field{month}{9}
+      \field{title}{On fast {Construction} of {SAH}-based {Bounding} {Volume} {Hierarchies}}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2024}
+      \field{year}{2007}
+      \field{urldateera}{ce}
+      \field{pages}{33\bibrangedash 40}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/RT.2007.4342588
+      \endverb
+      \verb{file}
+      \verb PDF:/home/sohaibalam/Zotero/storage/A2ZDSLIX/Wald - 2007 - On fast Construction of SAH-based Bounding Volume Hierarchies.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/4342588/
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/4342588/
+      \endverb
+    \endentry
+    \entry{noauthor_c17_nodate}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{title}{C++17 - cppreference.com}
+      \field{urlday}{29}
+      \field{urlmonth}{10}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb C++17 - cppreference.com:/home/sohaibalam/Zotero/storage/VURE7CXR/17.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://en.cppreference.com/w/cpp/17
+      \endverb
+      \verb{url}
+      \verb https://en.cppreference.com/w/cpp/17
+      \endverb
+    \endentry
+    \entry{moller_fast_1997}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=94e27db04e86f2b4ec0d38fac3669e6b}{%
+           family={Möller},
+           familyi={M\bibinitperiod},
+           given={Tomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=338726ecdd858a4b49e5cb7ca1325d4d}{%
+           family={Trumbore},
+           familyi={T\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \strng{fullhash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \strng{fullhashraw}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \strng{bibnamehash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \strng{authorbibnamehash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \strng{authornamehash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \strng{authorfullhash}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \strng{authorfullhashraw}{d0eeec1f9de25a0ee8052444e5b8c1e2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present a clean algorithm for determining whether a ray intersects a triangle. The algorithm translates the origin of the ray and then changes the base to yield a vector (t u v) T , where t is the distance to the plane in which the triangle lies and (u, v) represents the coordinates inside the triangle. One advantage of this method is that the plane equation need not be computed on the fly nor be stored, which can amount to significant memory savings for triangle meshes. As we found our method to be comparable in speed to previous methods, we believe it is the fastest ray-triangle intersection routine for triangles that do not have precomputed plane equations.}
+      \field{issn}{1086-7651}
+      \field{journaltitle}{Journal of Graphics Tools}
+      \field{month}{1}
+      \field{note}{Publisher: Taylor \& Francis \_eprint: https://doi.org/10.1080/10867651.1997.10487468}
+      \field{number}{1}
+      \field{title}{Fast, {Minimum} {Storage} {Ray}-{Triangle} {Intersection}}
+      \field{urlday}{29}
+      \field{urlmonth}{10}
+      \field{urlyear}{2024}
+      \field{volume}{2}
+      \field{year}{1997}
+      \field{urldateera}{ce}
+      \field{pages}{21\bibrangedash 28}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1080/10867651.1997.10487468
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1080/10867651.1997.10487468
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1080/10867651.1997.10487468
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

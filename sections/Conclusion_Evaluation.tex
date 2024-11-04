@@ -1,0 +1,77 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Conclusion and Evaluation}
+Overall, I think this project has been very successful in meeting its criteria defined.
+As a reminder, the success criteria were:
+\begin{itemize}
+  \item Correct Ray-Object Intersection
+  \item Correct Ray-Object Reflection/Refraction
+  \item Correct Light Source Distribution
+  \item Correct Indirect Light Transport
+  \item Interesting Objects
+  \item Correct Materials
+\end{itemize}
+
+Figure \ref{fig:Chess} showcases the best of what this project can produce. The  
+reflections of the chess pieces (and the reflections of said reflections) can be seen 
+in high quality, accurately modelling light transport, and distribution of light from sources.
+In addition, the Lambertian chess pieces also "absorb" the colour of the
+walls that surround them, and the floor utilises a checkerboard texture, which also reflective, thus 
+showing an accurate model of the Lambertian materials.
+
+As shown before, Figure \ref{fig:Lucy} shows the St Lucy model, which is 
+an example highlighting the best of the ray-object intersection algorithm implemented within this project.
+The St Lucy model is a complex object, with over 2 million triangles, and the Oct-Tree acceleration structure
+allowed the model to be rendered in 10 minutes. The Oct-Tree structure also works alongside the
+M\"{o}ller-Trumbore algorithm, which allows for interesting objects to be rendered.
+
+Figure \ref{fig:Dragon} showcases the Chinese Dragon with a metallic material applied to it.
+The dragon here isn't that reflective, however still reacts to the strong light source at
+the top of the screen, as well as the walls to red and green walls to its side. One can note 
+the distinct lack of shows in this image, especially on the floor. The reason behind this is that
+this ray-tracer does not include shadow rays, whose purpose is to determine if a point in the scene,
+however by not including any shadow rays, we get caustics and subsurface scattering for free \cite{peter_shirley_trevor_david_black_steve_hollasch_ray_nodate}.
+
+Figure \ref{fig:CornellBox} shows the standard Cornell Box.
+The Cornell Box is a standard test scene in the field of ray-tracing, and is used to test the 
+accuracy of the ray-tracer. The Cornell Box is a simple scene, with a light source, a few walls, and a few objects.
+This image shows the biggest limitation of this ray-tracer, the lack of global illumination. Global illumination is the
+process of light bouncing off surfaces and illuminating other surfaces. This is a very complex process, and is usually
+done by using BxDFs as well as Monte-Carlo Integration, which is a very complex algorithm \cite{higham_accuracy_2002}.
+Without using BxDFs, the image produced is very "grainy" or "noisy". This is because not all rays out of the camera,
+end up hitting a light source, and therefore the image is incomplete. Using BxDFs allow the rays to be biased towards the 
+light source, so more rays end up hitting the light source.
+This process was not implemented in this project, primarily due to time constraints because of the complexity of the algorithm.
+
+\subsection{Project Evaluation}
+Time constraints were a huge issue during the development of this project, 
+as I had to balance this project with my A-Level studies. This meant that I had to cut some features, such as BxDFs.
+For example, I could not work on the project during my practice exams which meant I was behind schedule, however
+I managed to catch up during the summer holidays.
+
+Another issue was that I felt that I was overtly ambitious with the project, as I wanted this to 
+be a serious ray-tracer, however I did not realise the true complexity of 
+setting up the code infrastructure to even begin ray-tracing. What I had not realised was
+that my primary source for this project was not a recipe book on how to make a ray-tracer,
+but rather an encyclopaedia on the theory of ray-tracing. This meant that I had to spend a lot of time
+translating abstract math written on paper into concrete code. This was a very difficult process, as 
+sometimes I had to teach myself the math\footnote{A lot of which was and is not covered in my A-Level course}, 
+before I could even begin to implement it. As a result, my project timeline was completely wrong at the beginning, where I had 
+intended to finish my project by June. However, our EPQ deadline was extended before I planned my project timeline, therefore I will 
+evaluate myself too harshly on this aspect. Nonetheless, I found it a very rewarding experience, as I
+moulded my own ray-tracer from scratch, rather than following a cookie-cutter recipe on the Internet\footnote{See \cite{noauthor_how_nodate} 
+for context}.
+\subsection{Presentation Evaluation}
+My presentation of this project, however, went extremely well. I used Manim \cite{noauthor_manim_nodate} to create a presentation of my project, that was 
+animated, and therefore engaging. I managed to brief the audience as to the reasoning behind why one would want to use a ray-tracer,
+as well as an apologia for some decisions and limitations of my project. However, I felt as if my presentation could have benefited 
+from me slowing down. On the other hand, in the 10-minute limit we were given, I think I could not have done much better explaining 
+the fundamentals of ray-tracing, while also giving enough respect to the evaluations of my project.
+
+In conclusion, I think this EPQ was a major success for me, as I managed to create a ray-tracer from scratch, and present it in an
+engaging manner. Whilst I did not manage to implement all the features I wanted to, by not implementing them, I have
+learned a lesson in being realistically ambitious. I have also learned a lot about ray-tracing, and the theory behind it, which
+will be beneficial in my university studies in Computer Science.
+
+\end{document}

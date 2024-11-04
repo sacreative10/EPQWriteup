@@ -5,14 +5,14 @@
 \begin{document}
 \section{Design Overview}
 In this chapter, I will outline the artefact's inner workings; showing which components are used where, and how they interact. 
-Much of the system has been informed by how \cite{pharrPhysicallyBasedRendering2016} designed their system, albeit modified to fit the use case.
+Much of the system has been informed by how \cite{pharr_physically_2016} designed their system, albeit modified to fit our use case.
 
 \subsection{Phases of Execution}
 
 Initially, the program creates its own representation of the scene being rendered. This is done by creating scene objects and materials
 and then adding them to the scene.
 
-Each object is treated as a \textit{hittable} object, which means that it can be hit by a ray. Note this is also how \cite{petershirleytrevordavidblackstevehollaschRayTracingOne}
+Each object is treated as a \textit{hittable} object, which means that it can be hit by a ray. Note this is also how \cite{peter_shirley_trevor_david_black_steve_hollasch_ray_nodate}
 designed and called their system. A hittable object is defined as an abstract class, meaning that it can be inherited by other classes, and custom functions can be implemented 
 for each object.
 
@@ -22,22 +22,21 @@ For example, the \textit{hittable} object offers a function \textit{hit} which r
 And so with a sphere, we can implement a custom \textit{hit} function, that takes into account the parameters of the sphere.
 For demonstration purposes, we will derive this function in order to illustrate how the ray-hit algorithm works.
 
-\subsubsection{Ray-Sphere Intersection}
-Note that we have a ray $R(t) = A + tb$ where $A$ is the origin of the ray, $b$ is the direction of the ray, and $t$ is the distance from the origin.
+\subsection{Ray-Sphere Intersection}
+Note that we have a ray $R(t) = A + tb$ where $A$ is the origin of the ray, $b$ is the direction of the ray, and $t$ is the distance from the origin (acting as a parameter) \cite{ap_professional_firm_ap_1995}.
 We also have a sphere with a center $C$ and a radius $r$.
 We can write the equation of the sphere, centered at the origin, with radius r as
 $$
 x^2 + y^2 + z^2 = r^2
 $$
-This can be thought of as also asking, whether a given point is inside, outside, or within the sphere.
-For us, there are only two possiblities we care about. Whether the ray is a tangent, and only touches
+The equation can be thought of as also asking whether a given point is inside, outside, and when combined with the ray: whether the ray is a tangent [to the sphere], or only touches
 the sphere at a point, or if it intersects the sphere at two points.
 To move towards this ideal goal, we can represent as the centre of the sphere as $C = (C_x, C_y, C_z)$, and move towards writing the equation of the sphere in terms of vectors.
-Let $P$ represent an arbitary point in 3D space, then we get:
+Let $P$ represent an arbitrary point in 3D space:
 $$
 (C-P) \cdot (C-P) = r^2
 $$
-We can represent the point $P$, as a point on our ray, and thus we get:
+We can represent the point $P$, as a point on our ray ($P = A + tb$), and thus we get:
 $$
 (C - (A + tb)) \cdot (C - (A + tb)) = r^2
 $$
@@ -45,11 +44,11 @@ Writing in terms of t:
 $$
 t^2b \cdot b + 2t b \cdot (A - C) + (A - C) \cdot (A - C) - r^2 = 0
 $$
-This is in the form of the quadratic equation in terms of $t$, and can be thought of asking if there is a parameter $t$ for some ray, which touches or intersects the sphere.
+This is in the form of the quadratic equation in terms of $t$, and can be thought of asking if there is a parameter $t$ for some ray (a point along the ray), which touches or intersects the sphere.
 Using the quadratic formula, we can solve for $t$:
-$$
-a = b \cdot b, \quad b = 2b \cdot (A - C), \quad c = (A - C) \cdot (A - C) - r^2
-$$
+\begin{gather*}
+a = b \cdot b \\ \quad b = 2b \cdot (A - C) \\ \quad c = (A - C) \cdot (A - C) - r^2
+\end{gather*}
 and t as 
 $$
 t = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
@@ -62,14 +61,152 @@ By allowing child classes to implement their own \textit{hit} function, we can e
 so long as the hit function has been implemented correctly.
 
 We allow all objects to have a material associated with them, which is a class that defines how light interacts with the object, further 
-information on this will be provided in the appropiate section.
+information on this will be provided in the appropriate section.
 
-Once all of the objects have been added to the scene, the program will begin the ray tracing process. In order to begin ray tracing, once must 
-obtain these rays from the camera.
-\subsubsection{Camera Model}
+Once all the objects have been added to the scene, the program will begin the ray tracing process. In order to begin ray tracing, once must 
+obtain these rays from the camera. 
+
+Since the ray tracing process acts as a reverse image, by tracing these rays back to a light source, we can obtain the colour of the pixel. Done for 
+all rays, we can obtain the final image.
+
+\subsection{Camera Model}
 For this project, we will use a very simple camera model, a pinhole camera. Pinhole cameras are the simplest form of camera, and are often used 
 in ray tracing algorithms as a beginner camera model. The camera is defined by a position, a look-at point, and a field of view. 
 %% Add reference to pinhole cameras
 The camera generates rays by shooting rays from the camera's position to the point on the screen, and then normalizing the vector to get a unit vector 
-as the direction of the ray. The camera generates rays in a grid pattern, and the number of rays generated is determined by the resolution of the image\cite{petershirleytrevordavidblackstevehollaschRayTracingOne}.
+as the direction of the ray. The camera generates rays in a grid pattern, and the number of rays generated is determined by the resolution of the image \cite{peter_shirley_trevor_david_black_steve_hollasch_ray_nodate}.
+
+The pinhole camera does not have a lens, and thus does not have any distortion. This is a limitation of the pinhole camera, and is not representative of real-world cameras.
+However, for the purposes of this project, the pinhole camera is sufficient.
+
+\subsection{Ray Propagation}
+Once the rays have been generated by the camera, the rays are propagated through the scene.
+The use of the term "propogate" is a misnomer in the context of this system, since we are not transporting these rays through a medium, like fog or water \cite{pharr_physically_2016}
+but rather tracing these rays (thus the name), back to a light source.
+
+There are three cases we will need to consider when propagating rays:
+\begin{itemize}
+  \item The ray intersects a light source
+  \item The ray does not intersect anything, and is in the void
+  \item The ray intersects an object
+\end{itemize}
+
+If the ray intersects a light source, then the job is simple, we return the colour of the light source. Similarly, if the ray does not intersect anything, then we either
+return black as the colour of the void, or the background colour if specified within the scene.
+
+The most complicated case is when the ray intersects an object, because here the system must calculate two things:
+\begin{itemize}
+    \item The colour of the object, which is the colour of the object at the point of intersection
+    \item The outgoing ray, which is the ray that is reflected or refracted off the object
+\end{itemize}
+In order to calculate the colour of the object, we must know the lighting conditions within the scene, however this can only be 
+determined by the calculating the outgoing ray within the scene, to find a light source. One can immediately notice that this
+problem can be solved recursively.
+
+By the process of recursion, the system treats the ray out of the camera and the ray out from the object as the same general 3D ray
+against a general scene, treating as some geometric problem. This is where the ray-tracing algorithm spends the
+most of its execution time, as to get a good approximation of the lighting within the scene, the ray must bounce $>50$ times \cite{pharr_physically_2016}.
+
+\subsubsection{Acceleration Structures}
+As established, the ray-tracing algorithm will spend most of its time finding intersections between rays and objects. The
+most naive method would be to check a ray's intersection with every single object within the scene.
+% talk about the image with the spheres
+One method of speeding up this process of finding intersections is to use an acceleration structure \cite{pharr_physically_2016}. These
+structures allow the ray-tracer to effectively cull objects not near the ray, and focus more computation on objects with a higher probability of being hit.
+
+There exist a few varieties of acceleration structures, such as bounding volume hierarchies, and kd-trees \cite{pharr_physically_2016, arvo_transforming_1990}. And this system uses
+the former to speed up the ray-tracing process. There is no compulsion to choose one over the other, since both provide equivalent performance improvements, so the choice 
+to the use the former is completely arbitrary.
+
+Another acceleration structure used within this system is the "OctTree", however the use of such was more relevant when implementing the system, and thus will 
+not be discussed here.
+
+\subsubsection{Bounding Volume Hierarchies}
+A BVH is a tree structure where each node represents a bounding volume containing a subset of objects in the scene \cite{wald_fast_2007}.
+At the root, the bounding volume encloses all objects within the scene. Moving down the tree, each child node represents a smaller bounding 
+volume that encloses a subset of objects from its parent node. The tree terminates at the leaves, where the bounding volumes 
+typically contain individual objects or small groups of objects. The bounding volume is generally chosen to be a simple shape, 
+like an axis-aligned bounding box (AABB) or a sphere, making intersection tests computationally inexpensive.
+
+The efficiency of a BVH stems from its hierarchical structure. When a ray traverses the scene, it first checks for intersection with 
+the bounding volume at the root. If there is no intersection with the root volume, the ray can discard all objects within the root's 
+subtree, effectively "culling" a large portion of the scene. If an intersection is found, the ray recursively traverses the tree, 
+testing intersections with each child node. This process narrows down the set of objects the ray intersects, focusing computational 
+resources on the areas with higher likelihood of an intersection \cite{wald_fast_2007}.
+
+\subsection{Materials}
+Materials are an important part of the ray-tracing process, as they define how light interacts with objects in the scene, and 
+in turn determine how the viewer percieves the scene.
+
+The system will provide three materials for the scene to use:
+\begin{itemize}
+  \item Lambertian
+  \item Metal
+  \item Dielectric
+\end{itemize}
+
+One important note about this system, is that is lacks the usage of BxDFs to describe materials, which are a family of probability distributions that
+describe how light interacts with surfaces \cite{pharr_physically_2016}. This is an intentional limitation introduced to simplify the system, as the goal for this
+project was to build a simple ray-tracer, with all of its foundations rather than a full-featured ray-tracer.
+
+The Lambertian material is the simplest of the three materials provided, and is used to represent an ideal diffuse surface. This entails that the reflected 
+ray is scattered proportional to the cosine of the angle between the incoming ray, and the normal of the surface \cite{peter_shirley_trevor_david_black_steve_hollasch_ray_nodate}
+
+The Metal material is used to describe a surface that reflects light. Though called a metal, it can also be used to represent mirrors, or any other surface that reflects light.
+The metal material is defined by a colour, and a roughness parameter, which dictates how much the reflected ray is scattered from its true reflection.
+For example, a roughness of 0 would represent a perfect mirror, where the angle of incidence is equal to the angle of reflection, and a roughness of 1 would represent a diffuse surface,
+where the reflected ray is likely to be scattered in any direction \cite{peter_shirley_trevor_david_black_steve_hollasch_ray_nodate, pharr_physically_2016}.
+
+Lastly, the most complicated material that will be implemented is the Dielectric material. This material represents transparent surfaces, such as glass or water.
+Such materials, instead of reflecting light refract light, which means that the light is bent as it passes through the surface.
+Such refraction is described by Snell's Law \cite{bone_level_2016}:
+$$
+\eta_i \sin \theta_i = \eta_t \sin \theta_t
+$$
+In order to know the direction of the refracted ray, we must know the angle of refraction, which is written as:
+$$
+\sin \theta_t = \frac{\eta_i}{\eta_t} \sin \theta_i
+$$
+If we treat the refracted ray as a vector $R'$, then we can describe the refracted ray as the sum of the
+vector $R'_{\perp}$ which is perpendicular to the surface normal $n$ and the vector $R'_{\parallel}$ which is parallel to the surface normal $n$.
+$$
+R' = R'_{\perp} + R'_{\parallel}
+$$
+The vector $R'_{\parallel}$ is given by:
+$$
+R'_{\parallel} = -\sqrt{1 - |R'_{\perp}|^2} n
+$$
+and the vector $R'_{\perp}$ is given by:
+$$
+R'_{\perp} = \frac{\eta_i}{\eta_t} (R + \cos \theta n)
+$$
+where $R$ is the direction of the incoming ray.
+
+In the above equations, we know of all terms except the cosine component. Recall that the cosine component is also present
+in the dot product of two vectors, thus our $R'_{\perp}$ can be written as:
+$$
+R'_{\perp} = \frac{\eta_i}{\eta_t} (R + (-R \cdot n) n)
+$$
+The proof and derivation of the above equations is left as an exercise to the reader.
+
+Going back to Snell's Law:
+$$
+\sin \theta' = \frac{\eta}{\eta'} \sin \theta
+$$
+If the ray is incident from glass to air ($\eta = 1.5$ and $\eta' = 1.0$):
+$$
+\sin \theta' = \frac{1.5}{1.0} \sin \theta
+$$
+But the value of $sin \theta'$ cannot be greater than 1, So if:
+$$
+\frac{1.5}{1.0} \sin \theta > 1
+$$
+Then the inequality is not satisfied, and our Snell's Law is broken. 
+In this case we must reflect the ray. This is known as Total Internal Reflection \cite{bone_level_2016}, and must 
+be something the system must account for if it is to be accurate.
+
+\subsection{Final Image}
+Once all the rays have been propagated through the scene, the system will have a list of colours for each pixel in the image.
+The system will then write these colours to a file, which can be viewed by the user.
+
 \end{document}

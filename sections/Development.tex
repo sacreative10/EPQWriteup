@@ -1,0 +1,114 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Development}
+In this chapter I will discuss the implementation details of the project, as outlined
+in the design overview. I will outline some challenges faced and how they were solved.
+Please refer to the appendix for the full code listings.
+
+\subsection{Scene Description}
+Before starting the ray-tracing algorithm, the system must know the parameters of the scene.
+This includes the parameters about the pinhole camera and the objects in the scene. 
+
+Initially, all objects are stored in a large list. As described in the design overview, all objects are 
+derived from the base class \textit{hittable} which has a virtual function \textit{hit} which is overridden by
+all derived classes. This allows for a single list to store all objects as shared pointers to the base class, but allows
+us to call the overridden \textit{hit} function of the derived class, due to the polymorphic nature of C++ pointers 
+\cite{noauthor_c17_nodate}.
+
+Each object must also provide a material, which within the \textit{hittable} object is defined as a reference\footnote{C++ makes a distinction between references and pointers, and also within the field of 
+Computer Science. However, in this paper the term reference and pointers are used interchangeably.} 
+to a \textit{Material} object.
+
+As with the \textit{hittable} object, the \textit{Material} object is a base class, which is overridden by derived classes. Note that we describe
+a light source using a material, unlike \cite{pharr_physically_2016}, where light sources are a separate entity.
+This is because we can describe a light source as a material, and this allows for a more consistent interface, as 
+opposed to having a separate entity for light sources, which is primarily used for BxDFs.
+
+There also exist some special 3D objects, such as triangles, while derived from the \textit{hittable} object, require 
+another argument to be present, namely the \textit{Mesh} and its constituent \textit{Triangle} objects. The reason will become 
+apparent in the relevant section.
+
+\subsection{Camera}
+The camera is defined by the position of the camera, the point it is looking at, and the up vector, using these 
+parameters, the system can calculate the camera's orientation.
+
+The camera class describes methods to generate rays, given a pixel on the screen. 
+The camera generates rays by first generating a ray from the camera to the point on the screen, then jittering the ray
+to account for the depth of field. The jittering is done by generating a random point on the lens of the camera, and
+calculating the ray from the camera to the point on the screen, through the point on the lens. 
+
+\subsection{Ray Propagation}
+As said in the design overview, the propagation of rays is the longest part of the algorithm. 
+Therefore, when the ray is propagated through the scene, the system must check for the
+intersection of the ray with objects within the scene. This system used a bounding volume hierarchy (BVH)
+as an acceleration medium.
+\subsubsection{Bounding Volume Hierarchy}
+The BVH is a tree structure, where each node has two children, and each child has two children, and so on. 
+Therefore, the implementation of the BVH is much akin to an implementation of a binary tree, where the main structure
+defined is a BVH node, which has two children (also BVH nodes), and a bounding box. The bounding box 
+is defined as the smallest box that can contain all the object(s) in the BVH node. Listing 3 shows the structure of the BVH node.
+
+When actually constructing the final BVH, the process first creates a bounding box that contains all the objects in the scene, then
+splits the bounding box into two smaller bounding boxes, such that the objects are evenly distributed between the two
+bounding boxes. This process is repeated until the bounding box contains a single object, or some objects.
+
+\subsection{Ray-Object Intersection}
+In this section, to serve as an example, I will divulge into the process of implementing the intersection of complex objects using triangles and 
+Meshes.
+
+To serve as context, it is important to note that all 3D objects can be represented as a collection of triangles. The more 
+triangles used to describe an object, the more accurate the representation of the object.
+
+\cite{woop_watertight_2013, moller_fast_1997} are the sources used to implement the M\"{o}ller-Trumbore algorithm, which is a fast algorithm to calculate the intersection of a ray with a triangle. 
+The algorithm is as follows:
+\begin{enumerate}
+  \item Calculate the normal of the triangle.
+  \item Calculate the determinant of the matrix formed by the ray direction and the edges of the triangle.
+  \item If the determinant is zero, the ray is parallel to the triangle, and there is no intersection.
+  \item Calculate the barycentric coordinates of the intersection point.
+  \item If the barycentric coordinates are within the triangle, there is an intersection.
+  \item Calculate the intersection point in this case.
+\end{enumerate}
+
+While for a singular triangle, this process is trivial, this problem is more complicated when 
+dealing with a mesh, which could possibly consist of more than a million triangles. This problem
+is similar to the performance bottleneck experienced in the naive ray object intersection, where we 
+brute force check every object in the scene, but in this case we brute force check every triangle in the mesh with the ray.
+
+To solve this problem, like the BVH, we can use another acceleration structure, which in this case is an Oct-Tree. 
+An Oct-Tree is another acceleration structure used to optimize the intersection-finding process within ray tracing systems \cite{meagher_octree_1980}. 
+While a Bounding Volume Hierarchy (BVH) organizes objects into hierarchically nested bounding volumes of arbitrary size, 
+the Oct-Tree divides the entire 3D space into fixed, equally-sized regions known as “octants.” Each subdivision of space 
+in the Oct-Tree creates eight child regions, hence the name "Oct-Tree."
+
+The Oct-Tree is constructed by recursively subdividing each parent node into eight smaller octants, each representing an 
+equal partition of its parent volume. This process continues until the tree reaches a certain level of granularity, 
+often defined by the number of objects in each region. Unlike BVHs, where bounding volumes are based on object positions, 
+Oct-Trees create fixed spatial partitions that do not adjust to object locations. This can make Oct-Trees more effective 
+for triangles meshes, since the fixed regions can provide a more uniform distribution of objects across the tree.
+
+Using this we can reduce the number of triangles we need to check for intersection with the ray, and therefore reduce the time 
+taken. This also allows us to render more complex objects. Figure \ref{fig:Lucy} shows the St Lucy model, which is
+an example of a complex object that can be rendered using this method; with the OctTree took appropriately 10 minutes
+to render the model, with 2 million triangles.
+
+\subsection{Materials}
+Materials are defined by the \textit{Material} class, which is a base class that is overridden by derived classes.
+
+Whilst most materials consist of a single color, this project also allows textures to be used as the base of the 
+materials. Figure \ref{fig:Marbling} shows a Perlin Noise texture applied to the floor and the sphere. In order 
+to apply a texture to the sphere, it must be noted that on a unit sphere (a sphere with a radius of 1), each
+point on the sphere can be represented using spherical coordinates $(\theta, \phi)$, where $\theta$ is the angle
+from the bottom pole ($-y$), and $\phi$ is the angle from the $-x$-axis to $+z$-axis (so around the $y$ axis)\footnote{This is opposite to the convention used 
+in most physics textbooks}.
+We can translate between Cartesian form and spherical form using the following equations:
+\begin{align*}
+  y &= -\cos(\theta) \\
+  x &= -\sin(\theta) \cos(\phi) \\
+  z &= \sin(\theta) \sin(\phi)
+\end{align*}
+From this we can use our $\theta$ and $\phi$ to sample the texture, and apply it to the sphere, by 
+creating two new variables to normalise our $\theta$ and $\phi$ to the range $[0, 1]$, and then 
+sample our texture at the point $(u, v)$, where $u$ is the normalised $\phi$, and $v$ is the normalised $\theta$.
+\end{document}

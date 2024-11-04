@@ -1,0 +1,12 @@
+{
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": ".*\\.tex",
+                "cmd": "LaTeX Workshop: Build LaTeX project"
+                
+            }
+        ]
+    },
+    "latex-workshop.latex.rootFile.useSubFile": false
+}
